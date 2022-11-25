@@ -4,7 +4,7 @@ The F5-RADIUS-HealthMonitor-Builder iRule can be used to compute tailordered  UD
 
 LTMs build-in RADIUS-Monitor has unfortunately the limitation that it always requires a "ACCESS-Accept" RADIUS response to decide that a given Pool Member is healthy. 
 
-In the case that a RADIUS Service always responds with a "ACCESS-Challenge" RADIUS response or that you want to probe TOTP-based RADIUS Services which usually requiring time-based tokens as password you can't use the build-in RADIUS-Monitor to check availability.
+In the case that a RADIUS Service always responds with a "ACCESS-Challenge" RADIUS response, or in the case you want to probe TOTP-based RADIUS Services which usually requiring time-based tokens instead of fixed password values, you have to use a custom UDP monitor to check the availability of the RADIUS Services.
 
 A couple years ago the DevCentral Users Boneyard, Jan Holz am me had a [discussion on DevCentral](https://community.f5.com/t5/technical-forum/when-using-the-radius-monitor-should-the-f5-accept-the-access/td-p/123733) how such RADIUS Services could be monitoried by deploying generic UDP-based Health Monitors with tailordered SEND/RECV UDP payload strings. The outcome of this discussion was then used by F5 to publish [K30713256](https://support.f5.com/csp/article/K30713256).
 
